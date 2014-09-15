@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0.0",
+  "designWidth": 768,
+  "designHeight": 1024,
+  "dataScale": 1.0,
+  "textures": [],
+  "texturesPng": [
+    "bgMenu.png",
+    "btnPlay.png"
+  ],
+  "nodeTree": {
+    "options": {
+      "$type": "EditorCommon.JsonModel.Component.GUI.RootGUISurrogate, EditorCommon",
+      "visible": true,
+      "frameEvent": null,
+      "name": "Node",
+      "classname": "Node"
+    },
+    "children": [
+      {
+        "options": {
+          "$type": "EditorCommon.JsonModel.Component.GUI.PanelSurrogate, EditorCommon",
+          "touchAble": true,
+          "visible": true,
+          "classType": "Panel",
+          "width": 200.0,
+          "height": 200.0,
+          "sizePercentX": 0.416666657,
+          "sizePercentY": 0.625,
+          "actionTag": 4763076,
+          "tag": 2,
+          "anchorPointX": 0.0,
+          "anchorPointY": 0.0,
+          "name": "Panel_Menu",
+          "classname": "Panel"
+        },
+        "children": [
+          {
+            "options": {
+              "$type": "EditorCommon.JsonModel.Component.GUI.ImageViewSurrogate, EditorCommon",
+              "fileNameData": {
+                "resourceType": 0,
+                "path": "bgMenu.png",
+                "plistFile": ""
+              },
+              "scale9Width": 768.0,
+              "scale9Height": 1024.0,
+              "x": 384.0,
+              "y": 510.0,
+              "visible": true,
+              "classType": "ImageView",
+              "width": 768.0,
+              "height": 1024.0,
+              "positionPercentX": 1.92,
+              "positionPercentY": 2.55,
+              "sizePercentX": 0.4,
+              "sizePercentY": 0.4,
+              "actionTag": 1060730093,
+              "tag": 3,
+              "ignoreSize": true,
+              "name": "bgMenu",
+              "classname": "ImageView"
+            },
+            "children": [],
+            "classname": "ImageView"
+          },
+          {
+            "options": {
+              "$type": "EditorCommon.JsonModel.Component.GUI.ButtonSurrogate, EditorCommon",
+              "normalData": {
+                "resourceType": 0,
+                "path": "btnPlay.png",
+                "plistFile": ""
+              },
+              "pressedData": {
+                "resourceType": 0
+              },
+              "disabledData": {
+                "resourceType": 0
+              },
+              "text": "Play",
+              "fontSize": 50,
+              "capInsetsWidth": 1.0,
+              "capInsetsHeight": 1.0,
+              "scale9Width": 330.0,
+              "scale9Height": 133.0,
+              "x": 387.0,
+              "y": 333.0,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Button",
+              "width": 330.0,
+              "height": 133.0,
+              "positionPercentX": 1.935,
+              "positionPercentY": 1.665,
+              "sizePercentX": 0.515,
+              "sizePercentY": 0.2,
+              "actionTag": 887321464,
+              "tag": 4,
+              "ignoreSize": true,
+              "name": "Button_Play",
+              "classname": "Button"
+            },
+            "children": [],
+            "classname": "Button"
+          }
+        ],
+        "classname": "Panel"
+      }
+    ],
+    "classname": "Node"
+  },
+  "action": {
+    "speed": 1.0,
+    "timelines": []
+  }
+}
