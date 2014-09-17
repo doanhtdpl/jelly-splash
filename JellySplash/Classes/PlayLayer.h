@@ -19,11 +19,17 @@ class PlayLayer : public cocos2d::Layer
 public:
 	PlayLayer();
 	~PlayLayer();
-	static Scene* scene();
+	
 	CREATE_FUNC(PlayLayer);
 	virtual bool init() override;
+    
+    void processTouchBegin(Vec2 pos);
+    
 protected:
 private:
+    
+    Size winSize;
+    
 	SpriteBatchNode *spriteSheet;
 	Slice **_matrix;
 
