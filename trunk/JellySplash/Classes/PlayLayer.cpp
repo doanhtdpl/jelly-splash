@@ -7,16 +7,7 @@
 
 #define SLICE_GRAP 1
 
-Scene* PlayLayer::scene()
-{
-	auto scene = Scene::create();
 
-	auto layer = PlayLayer::create();
-
-	scene->addChild(layer);
-
-	return scene;
-}
 
 PlayLayer::PlayLayer()
 	:spriteSheet(NULL)
@@ -43,13 +34,11 @@ bool PlayLayer::init()
 	{
 		return false;
 	}
-
+    
+    winSize = Director::getInstance()->getWinSize();
+    
 	//tao anh nen
-	Size winSize = Director::getInstance()->getWinSize();
-	auto background = Sprite::create("bgGamePlay.png");
-	background->setAnchorPoint(Point(0, 1));
-	background->setPosition(Point(0, winSize.height));
-	this->addChild(background);
+	
 
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("sushi.plist");
 	spriteSheet = SpriteBatchNode::create("sushi.pvr.ccz"); 
@@ -87,19 +76,24 @@ void PlayLayer::initMatrix()
 void PlayLayer::createAndDropSlice(int row, int col)
 {
 	Size size = Director::getInstance()->getWinSize();
-	Slice* slice = Slice::create(row, col);
+    
+    int i = rand()%(6);
+    Slice* slice = Slice::create(Point(row, col), i);
+    
+    slice->setPosSlice(positionOfSlice(row, col));
+    
+	//Slice* slice = Slice::create(row, col);
 
 	//tao animation
 	Point endPosition = positionOfSlice(row, col);
-	Point startPosition = Point(endPosition.x, endPosition.y + _width / 2);
+	Point startPosition = Point(endPosition.x, endPosition.y + size.height / 2);
 
 	slice->setPosition(startPosition);
-	float speed = startPosition.y / (2 * size.height);
+	float speed = startPosition.y / (size.height);
 
 	slice->runAction(MoveTo::create(speed, endPosition));// roi xuong
 
 	spriteSheet->addChild(slice);
-	//this->addChild(slice);
 	_matrix[row * _width + col] = slice;
 }
 
@@ -112,4 +106,19 @@ Point PlayLayer::positionOfSlice(int row, int col)
 		Slice::getContentWidth() / 2;
 
 	return Point(x, y);
+}
+
+
+void PlayLayer::processTouchBegin(cocos2d::Vec2 pos)
+{
+    for (int row = 0; row < _height; row++)
+	{
+		for (int col = 0; col < _width; col++)
+		{
+			if(_matrix[row][col].isTap(pos))
+            {
+                CCLOG("%d",_matrix[row][col].getIDSlice());
+            }
+		}
+	}
 }

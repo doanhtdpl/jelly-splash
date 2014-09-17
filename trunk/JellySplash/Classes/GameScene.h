@@ -2,6 +2,7 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "PlayLayer.h"
 
 using namespace cocos2d;
 
@@ -24,6 +25,8 @@ private:
     Size _size;
     
     void addBackGround();
+    
+    PlayLayer* play;
     
     //touch
     

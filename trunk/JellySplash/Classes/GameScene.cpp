@@ -1,5 +1,6 @@
 #include "GameScene.h"
 
+
 USING_NS_CC;
 
 
@@ -37,6 +38,9 @@ bool GameScene::init()
     
     addBackGround();
     
+    play = PlayLayer::create();
+    this->addChild(play);
+    
     
     return true;
 }
@@ -59,20 +63,20 @@ void GameScene::onExit()
 
 bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    CCLOG("1");
+    play->processTouchBegin(touch->getLocation());
     
     return true;
 }
 
 void GameScene::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    CCLOG("move");
+    
 }
 
 
 void GameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    CCLOG("2");
+    
 }
 
 
