@@ -10,15 +10,15 @@
 #define __CrazyGost__GameOverLayer__
 
 #include "cocos2d.h"
-#include "CocosGUI.h"
+#include "ui/CocosGUI.h"
 //#include "ChartboostX.h"
 
 USING_NS_CC;
 
-using namespace cocos2d;
+//using namespace cocos2d;
 using namespace ui;
 
-class GameOverLayer : public Layer
+class GameOverLayer : public cocos2d::Layer
 {
 public:
     

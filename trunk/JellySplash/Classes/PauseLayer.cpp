@@ -26,20 +26,20 @@ void PauseLayer::onEnter()
 //    GameScene::getInstance()->button->setEnabled(false);
     
     
-    layout  = static_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("Pause.json"));
-    layout->runAction(MoveTo::create(0.3, Vec2(300, layout->getPositionY())));
-    this->addChild(layout);
-    
-    Button* button;
-    
-    button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Pause_Resume"));    
-    button->addTouchEventListener(CC_CALLBACK_2(PauseLayer::touchResumButtonEvent,  this));
-    
-    button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Pause_Home"));
-    button->addTouchEventListener(CC_CALLBACK_2(PauseLayer::touchHomeButtonEvent,  this));
-    
-    button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Pause_Close"));
-    button->addTouchEventListener(CC_CALLBACK_2(PauseLayer::touchCloseButtonEvent,  this));
+    //layout  = static_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("Pause.json"));
+    //layout->runAction(MoveTo::create(0.3, Vec2(300, layout->getPositionY())));
+    //this->addChild(layout);
+    //
+    //Button* button;
+    //
+    //button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Pause_Resume"));    
+    //button->addTouchEventListener(CC_CALLBACK_2(PauseLayer::touchResumButtonEvent,  this));
+    //
+    //button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Pause_Home"));
+    //button->addTouchEventListener(CC_CALLBACK_2(PauseLayer::touchHomeButtonEvent,  this));
+    //
+    //button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Pause_Close"));
+    //button->addTouchEventListener(CC_CALLBACK_2(PauseLayer::touchCloseButtonEvent,  this));
 
     
     Layer::onEnter();
