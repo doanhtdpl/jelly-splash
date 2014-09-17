@@ -8,7 +8,7 @@
 
 #include "GameOverLayer.h"
 #include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
+//#include "ui/CocosGUI.h"
 #include  "Menulayer.h"
 #include "GameScene.h"
 //#include "IOSShare.h"
@@ -33,13 +33,13 @@ void GameOverLayer::onEnter()
 {
    
     
-    Layout* layout  = static_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("GameOver.json"));
-    this->addChild(layout);
-    
-    Button* button;
-    
-    button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Button_Play"));
-    button->addTouchEventListener(CC_CALLBACK_2(GameOverLayer::touchPlayButtonEvent,  this));
+    //Layout* layout  = static_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("GameOver.json"));
+    //this->addChild(layout);
+    //
+    //Button* button;
+    //
+    //button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Button_Play"));
+    //button->addTouchEventListener(CC_CALLBACK_2(GameOverLayer::touchPlayButtonEvent,  this));
     
 //    button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Button_Rate"));
 //    button->addTouchEventListener(CC_CALLBACK_2(GameOverLayer::touchRateButtonEvent,  this));

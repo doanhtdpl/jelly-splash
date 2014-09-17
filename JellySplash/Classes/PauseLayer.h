@@ -10,13 +10,13 @@
 #define __CrazyGost__PauseLayer__
 
 #include "cocos2d.h"
-#include "cocosGUI.h"
+#include "ui/cocosGUI.h"
 
 USING_NS_CC;
 
 using namespace ui;
 
-class PauseLayer : public Layer
+class PauseLayer : public cocos2d::Layer
 {
 public:
     

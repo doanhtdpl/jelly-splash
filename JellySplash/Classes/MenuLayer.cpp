@@ -8,7 +8,7 @@
 
 #include "MenuLayer.h"
 #include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
+//#include "ui/CocosGUI.h"
 #include "GameScene.h"
 //#include "ChartboostX.h"
 //#include <GKHWrapperCpp.h>
@@ -56,13 +56,13 @@ void Menulayer::onEnter()
     Layer::onEnter();
     
     
-    Layout* layout = static_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("Menu.json"));
-    this->addChild(layout);
-    
-    Button* button;
-        
-    button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Button_Play"));
-    button->addTouchEventListener(CC_CALLBACK_2(Menulayer::touchButtonPlayEvent,  this));
+    //Layout* layout = static_cast<Layout*>(cocostudio::timeline::NodeReader::getInstance()->createNode("Menu.json"));
+    //this->addChild(layout);
+    //
+    //Button* button;
+    //    
+    //button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Button_Play"));
+    //button->addTouchEventListener(CC_CALLBACK_2(Menulayer::touchButtonPlayEvent,  this));
 //    
 //    button = static_cast<Button*>(Helper::seekWidgetByName(layout, "Button_Rate"));
 //    button->addTouchEventListener(CC_CALLBACK_2(Menulayer::touchButtonRateEvent,  this));
