@@ -20,6 +20,9 @@ static const char* sliceNormal[TOTAL_SLICE] = {
 	"sushi_6n.png"
 };
 
+
+
+
 float Slice::getContentWidth()
 {
 	static float itemWidth = 0;
@@ -32,28 +35,7 @@ float Slice::getContentWidth()
 	return itemWidth;
 }
 
-//tao moi slice co vi tri row, col. tra ve 1 con tro kieu Slice*
-Slice* Slice::create(int row, int col)
-{
-	Slice* slice = new Slice();
-    
-    slice->_imgIndex = rand() % TOTAL_SLICE;
-   
-    if(slice && slice->initWithSpriteFrameName(sliceNormal[slice->_imgIndex]))
-       {
-    
-           slice->_col = col;
-           slice->_row = row;
-           
-           //tao hinh anh tu chuoi cua mang tren
-	
-           slice->autorelease();
-           return slice;
-       }
-    
-    CC_SAFE_DELETE(slice);
-    return nullptr;
-}
+
 
 Slice* Slice::create(Point pos, int tyle)
 {
@@ -61,11 +43,14 @@ Slice* Slice::create(Point pos, int tyle)
     
     if(slice && slice->initWithSpriteFrameName(sliceNormal[tyle]))
     {
-        //slice->setPosSlice(pos);
         
-        slice->setIDSlice(tyle);
+        slice->sliceStatus = isNormal;
+        
+        slice->setSTYLE(tyle);
         
         slice->isActive = false;
+        
+        slice->isBack = false;
         
         slice->autorelease();
         
@@ -76,20 +61,21 @@ Slice* Slice::create(Point pos, int tyle)
     return nullptr;
 }
 
-bool Slice::isTap(cocos2d::Vec2 tapPos)
+bool Slice::isCheckTap(Vec2 pos)
 {
-    float _distanceX = posSlice.x - tapPos.x;
-    float _distanceY = posSlice.y - tapPos.y;
+    float _distanceX = ((Slice*)this)->getPositionX() - pos.x;
+    float _distanceY = ((Slice*)this)->getPositionY() - pos.y;
     
     if(_distanceX < 0)
         _distanceX = -_distanceX;
     if(_distanceY < 0)
         _distanceY = -_distanceY;
     
-    float _radianX = 90 + 10.0;
-    float _radianY = 90 +10.0;
+    float _radianX = ((Slice*)this)->getContentSize().width / 2;
+    float _radianY = ((Slice*)this)->getContentSize().height / 2;
     
-    //return (!(powf(_distanceX, 2) + powf(_distanceY, 2) > powf(_radian, 2)));
-    return (!(_distanceX > _radianX) && !(_distanceY > _radianY));
+    
+    return ((_distanceX < _radianX) && (_distanceY < _radianY));
+       
 }
 
