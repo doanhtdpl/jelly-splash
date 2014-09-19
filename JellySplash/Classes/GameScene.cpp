@@ -65,18 +65,20 @@ bool GameScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event)
 {
     play->processTouchBegin(touch->getLocation());
     
+    
+    
     return true;
 }
 
 void GameScene::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    
+    play->processTouchMove(touch->getLocation());
 }
 
 
 void GameScene::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event)
 {
-    
+    play->processTouchEnd();
 }
 
 

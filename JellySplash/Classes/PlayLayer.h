@@ -25,13 +25,27 @@ public:
     
     void processTouchBegin(Vec2 pos);
     
+    void processTouchMove(Vec2 pos);
+    
+    void processTouchEnd();
+    
+    Vector<Slice*>* listSlice;
+    Vector<Slice*>* sublistSlice;
+    
 protected:
 private:
     
+    virtual void update(float dt);
+    
+    virtual void onExit();
+    
     Size winSize;
     
-	SpriteBatchNode *spriteSheet;
-	Slice **_matrix;
+	Slice* indexSlice;
+    
+    int idSlice;
+    int firstID;
+    int endID;
 
 	//kich thuoc matran
 	int _width;
@@ -43,6 +57,10 @@ private:
 
 	void initMatrix();
 	void createAndDropSlice(int row, int col);
+    
+    bool checkSlice(Slice* slice);
+    
+    bool checkSliceAround(Slice* currSlice, Slice* nextSlice);
 
 	//Tra ve vi tri toa do Point cua Slice tai vi tri hang - col
 	Point positionOfSlice(int row, int col);
